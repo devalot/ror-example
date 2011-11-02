@@ -1,33 +1,30 @@
-source 'http://rubygems.org'
+################################################################################
+source('http://rubygems.org')
 
-gem 'rails', '3.1.1'
+################################################################################
+# Mandatory gems
+gem('rails', '3.1.1')
+gem('sqlite3') # or your database adapter of choice
+gem('json')
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+################################################################################
+# Gems needed for the asset pipeline.  Not used in production unless
+# you are going to compile assets on the fly or build cached version
+# on a production machine.
+group(:assets) do
+  # You *must* have a JavaScript interpreter installed.  The easiest
+  # one to install is The Ruby Racer (https://github.com/cowboyd/therubyracer) 
+  # but there are others: https://github.com/sstephenson/execjs
+  gem('therubyracer')
 
-gem 'sqlite3'
-
-gem 'json'
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.1.4'
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  # Other asset related gems
+  gem('sass-rails',   '~> 3.1.4')
+  gem('coffee-rails', '~> 3.1.1')
+  gem('uglifier',     '>= 1.0.3')
 end
 
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
+################################################################################
+# Other gems that we'll be using
+gem('jquery-rails') # If you prefer prototype: gem('prototype-rails')
+gem('bcrypt-ruby', '~> 3.0.0')  # So we can use: has_secure_password
 
