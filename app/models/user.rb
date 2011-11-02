@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
   has_secure_password
   
   ##############################################################################
+  # Tell ActiveRecord how this model relates to other models.
+  has_many(:cars)
+  
+  ##############################################################################
   # Help keep email addresses in a consistent format so we can look
   # them up in the database we can find them regardless of the case
   # and spacing the user entered in a form.

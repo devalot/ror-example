@@ -27,4 +27,10 @@ end
 # Other gems that we'll be using
 gem('jquery-rails') # If you prefer prototype: gem('prototype-rails')
 gem('bcrypt-ruby', '~> 3.0.0')  # So we can use: has_secure_password
+gem('money',       '>= 4.0.1')
 
+################################################################################
+# Gems that are loaded only in the test environment.
+group(:test) do
+  gem('factory_girl_rails')
+end

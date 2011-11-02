@@ -10,7 +10,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111102182704) do
+ActiveRecord::Schema.define(:version => 20111102210426) do
+
+  create_table "cars", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cars", ["user_id"], :name => "index_cars_on_user_id"
+
+  create_table "refuels", :force => true do |t|
+    t.integer  "car_id"
+    t.datetime "refueled_at"
+    t.integer  "odometer"
+    t.float    "gallons"
+    t.float    "mpg"
+    t.integer  "distance"
+    t.integer  "price_cents", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "refuels", ["car_id", "refueled_at"], :name => "index_refuels_on_car_id_and_refueled_at", :unique => true
+  add_index "refuels", ["car_id"], :name => "index_refuels_on_car_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
