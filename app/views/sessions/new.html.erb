@@ -1,0 +1,23 @@
+<% @title = 'Log in' %>
+
+<%= form_for(:user, :url => sessions_path) do |form| %>
+  <p>
+    If you have an account you can enter your email address and
+    password below.  If you don't yet have an account start the rails
+    console and create one.
+  </p>
+
+  <p>
+    <%= form.label(:email) %>
+    <%= form.email_field(:email) %>
+  </p>
+  
+  <p>
+    <%= form.label(:password) %>
+    <%= form.password_field(:password) %>
+  </p>
+  
+  <div>
+    <%= form.submit('Log in') %>
+  </div>
+<% end %>

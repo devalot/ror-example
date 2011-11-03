@@ -1,0 +1,24 @@
+<% @title = 'Cars' %>
+
+<% if @cars.empty? %>
+  <p>
+    Your account doesn't have any cars associated with it yet.  Start
+    by <%= link_to('creating one', new_car_path) %>.
+  </p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
