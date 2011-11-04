@@ -1,0 +1,32 @@
+<%= form_for([@car, @refuel]) do |form| %>
+  <fieldset>
+    <legend><%= @title %></legend>
+    
+    <%# Error messages would go here %>
+    
+    <p>
+      <%= form.label(:refueled_at, 'Refuel Date') %>
+      <%= form.datetime_select(:refueled_at) %>
+    </p>
+    
+    <p>
+      <%= form.label(:odometer, 'Current Odometer Reading') %>
+      <%= form.number_field(:odometer) %>
+    </p>
+    
+    <p>
+      <%= form.label(:gallons, 'Number of Gallons for This Refuel') %>
+      <%= form.number_field(:gallons) %>
+    </p>
+    
+    <p>
+      <%= form.label(:price, 'Total Cost of This Refuel') %>
+      <%= form.number_field(:price) %>
+    </p>
+    
+    <p>
+      <%= button_to_function('Cancel', "window.location='#{cars_path}'") %>
+      <%= form.submit %>
+    </p>
+  </fieldset>
+<% end %>

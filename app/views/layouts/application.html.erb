@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Example</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= @title %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="content">
+      <% if flash.notice %><div class="notice"><%= flash.notice %></div><% end %>
+      <% if flash.alert  %><div class="alert" ><%= flash.alert  %></div><% end %>
+      <%= yield %>
+    </div>
+  </body>
 </html>

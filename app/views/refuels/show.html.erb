@@ -1,0 +1,14 @@
+<% @title = "Refuel from #{@refuel.refueled_at.to_s(:short)} for your " + @car.name %>
+<h1><%= @title %></h1>
+
+<ul>
+  <li>Refuel Date: <%= @refuel.refueled_at.to_s(:short) %></li>
+  <li>Odometer: <%= @refuel.odometer %></li>
+  <li>Gallons: <%= @refuel.gallons %></li>
+  <li>Price: <%= @refuel.price.format %></li>
+  <li>Distance: <%= @refuel.distance %></li>
+  <li>MPG: <%= @refuel.formatted_mpg %></li>
+</ul>
+
+<%= link_to('Back to Cars', car_path(@car)) %><br/>
+<%= link_to('All Refuels', car_refuels_path(@car)) %>

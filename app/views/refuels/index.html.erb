@@ -1,0 +1,31 @@
+<% @title = 'Refuels for your ' + @car.name %>
+<h1><%= @title %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Refuel Date</th>
+      <th>Odometer</th>
+      <th>Gallons</th>
+      <th>Total Price</th>
+      <th>Distance Since Last Refuel</th>
+      <th>MPG on Last Tank of Gas</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @refuels.each do |refuel| %>
+      <tr>
+        <td><%= refuel.refueled_at.to_s(:short) %></td>
+        <td><%= refuel.odometer %></td>
+        <td><%= refuel.gallons %></td>
+        <td><%= refuel.price.format %></td>
+        <td><%= refuel.distance %></td>
+        <td><%= refuel.formatted_mpg %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to('Back to Cars', car_path(@car)) %><br/>
+<%= link_to('Create New Refuel Record', new_car_refuel_path(@car)) %>

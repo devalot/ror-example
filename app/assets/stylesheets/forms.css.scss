@@ -1,0 +1,52 @@
+form {
+  margin: 0 0 25px 0;
+  font-family: Helvetica;
+
+  fieldset {
+    padding: 10px;
+    border: 1px solid #f1f1f1;
+  }
+  
+  legend {
+    padding: 0 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  label {
+    margin: 0;
+    padding: 0 0 3px 0;
+    font-size: .8em;
+    font-weight: bold;
+    display: block;
+  }
+  
+  input, textarea {
+    margin: 0;
+    padding: 0;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  textarea {
+    width: 450px;
+    height: 23px;
+    font-size: 16px;
+    border: 1px solid silver;
+  }
+  
+  textarea {
+    resize: none;
+    font-size: 12px;
+    height: 130px;
+  }
+  
+  input[type="submit"],
+  input[type="button"] {
+    margin: 10px 0 10px 30px;
+    padding: 4px;
+    font-size: 1.2em;
+  }
+}

@@ -28,6 +28,12 @@ class Refuel < ActiveRecord::Base
   belongs_to(:car) # refuel.car
   
   ##############################################################################
+  # A scope is a way to give a name to database query so it can be
+  # accessed by other models, controllers, and views.  You can see
+  # this being used in app/views/cars/index.html.erb.
+  scope(:most_recent, order('refueled_at DESC').limit(1))
+  
+  ##############################################################################
   # This method is used to find a refuel that occurred just prior to
   # this one.  We'll use this later to calculate MPG and distance
   # based on the previous refuel.
@@ -40,6 +46,18 @@ class Refuel < ActiveRecord::Base
   # preceding.
   def following
     car.refuels.where('refueled_at > ?', refueled_at).order('refueled_at').first
+  end
+  
+  ##############################################################################
+  def formatted_mpg
+    "%.2f" % [mpg || 0.0]
+  end
+  
+  ##############################################################################
+  def cost_per_mile
+    if other = preceding
+      preceding.price / distance
+    end
   end
   
   ##############################################################################

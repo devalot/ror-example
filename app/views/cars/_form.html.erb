@@ -1,0 +1,17 @@
+<%= form_for(@car) do |form| %>
+  <fieldset>
+    <legend><%= @title %></legend>
+    
+    <%# Error messages would go here %>
+
+    <p>
+      <%= form.label(:name) %>
+      <%= form.text_field(:name) %>
+    </p>
+    
+    <p>
+      <%= button_to_function('Cancel', "window.location='#{cars_path}'") %>
+      <%= form.submit %>
+    </p>
+  </fieldset>
+<% end %>

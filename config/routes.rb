@@ -7,7 +7,13 @@ Example::Application.routes.draw do
   
   ##############################################################################
   # Create all the default routes for the cars controller.
-  resources(:cars)
+  resources(:cars) do
+
+    # Refuels is a nested resource, you have to get to them through
+    # the cars resource.  This affects URLs and the URL generators.
+    # After adding this try running `rake routes`.
+    resources(:refuels)
+  end
   
   ##############################################################################
   # Default and custom routes for sessions

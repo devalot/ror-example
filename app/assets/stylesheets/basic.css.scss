@@ -1,0 +1,22 @@
+/* This file is a Sass file (http://sass-lang.com/) which is very
+   similar to CSS3 but it is translated to CSS2 */
+
+#content {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+table {
+  margin: 20px 0;
+  border-collapse: collapse;
+  
+  td, th {
+    border: 1px solid #eee;
+    padding: 6px;
+  }
+  
+  thead tr {
+    background-color: #ddd;
+  }
+}
